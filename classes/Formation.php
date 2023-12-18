@@ -1,5 +1,7 @@
 <?php
-include 'bdd/database.sql';
+
+include 'bdd/config.php';
+include 'classes/database.php';
 
 class Formation {
     private $id;
@@ -18,7 +20,8 @@ class Formation {
         $this->nombre_module = $nombre_module;
     }
 
-    public function getAll($pdo) {
+    public static function getAll($pdo) {
+        // Notez que la variable $pdo est déjà passée en paramètre, pas besoin de la redéclarer ici
         $sql = "SELECT * FROM formations";
         $stmt = $pdo->query($sql);
         $formations = [];
@@ -30,7 +33,8 @@ class Formation {
         return $formations;
     }
 }
-
-
 ?>
+
+
+
 

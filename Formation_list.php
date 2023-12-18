@@ -1,15 +1,25 @@
 <?php
+// Include database configuration
 include 'bdd/config.php';
+
+// Include Formation class definition
 include 'classes/Formation.php';
 
-$formations = Formation::getAll();
+// Include datas (if needed)
+include 'bdd/datas.php';
+
+// Fetch formations from the database
+$formations = Formation::getAll($pdo);
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Formation Details</title>
+    <title>Formation List</title>
 </head>
 <body>
+    <?php include 'header.php'; ?>
+
     <table>
         <thead>
             <tr>

@@ -22,3 +22,6 @@ CREATE TABLE modules (
     module_id INT,
     FOREIGN KEY (module_id) REFERENCES Formation(id)
 );
+
+
+INSERT INTO `formations`
