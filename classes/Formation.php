@@ -21,20 +21,18 @@ class Formation {
     }
 
     public static function getAll($pdo) {
-        // Notez que la variable $pdo est déjà passée en paramètre, pas besoin de la redéclarer ici
         $sql = "SELECT * FROM formations";
         $stmt = $pdo->query($sql);
         $formations = [];
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $formations[] = new Formation($row['id'], $row['name'], $row['duration'], $row['abbreviation'], $row['RNCP_level'], $row['is_public']);
+            $formations[] = new Formation($row['id'], $row['name'], $row['durée'], $row['abréviation'], $row['RNCP_niveau'], $row['nombre_module']);
         }
 
         return $formations;
     }
 }
+
 ?>
-
-
 
 

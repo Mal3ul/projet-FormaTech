@@ -12,16 +12,16 @@ CREATE TABLE formations (
     durée INT,
     abréviation VARCHAR(255),
     RNCP_niveau INT,
-    nombre_module BOOLEAN
+    public BOOLEAN
 );
 
 CREATE TABLE modules (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255),
     durée INT,
-    module_id INT,
-    FOREIGN KEY (module_id) REFERENCES Formation(id)
+    formation_id INT UNSIGNED,
+    FOREIGN KEY (formation_id) REFERENCES formations(id)
 );
 
 
-INSERT INTO `formations`
+

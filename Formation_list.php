@@ -1,14 +1,6 @@
 <?php
-// Include database configuration
-include 'bdd/config.php';
-
-// Include Formation class definition
 include 'classes/Formation.php';
 
-// Include datas (if needed)
-include 'bdd/datas.php';
-
-// Fetch formations from the database
 $formations = Formation::getAll($pdo);
 ?>
 
@@ -18,7 +10,7 @@ $formations = Formation::getAll($pdo);
     <title>Formation List</title>
 </head>
 <body>
-    <?php include 'header.php'; ?>
+<?php include 'header.php'; ?>
 
     <table>
         <thead>
@@ -32,16 +24,18 @@ $formations = Formation::getAll($pdo);
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($formations as $formation): ?>
-                <tr>
-                    <td><?= $formation->getId() ?></td>
-                    <td><?= $formation->getName() ?></td>
-                    <td><?= $formation->getDuration() ?></td>
-                    <td><?= $formation->getAbbreviation() ?></td>
-                    <td><?= $formation->getRNCPLevel() ?></td>
-                    <td><?= $formation->getModuleCount() ?></td>
-                </tr>
-            <?php endforeach; ?>
+        <?php
+            foreach ($formations as $formation) {
+                echo '<tr>';
+                echo '<td>' . $formation->id . '</td>'; 
+                echo '<td>' . $formation->name . '</td>';
+                echo '<td>' . $formation->durée . '</td>';
+                echo '<td>' . $formation->abréviation . '</td>';
+                echo '<td>' . $formation->RNCP_niveau . '</td>';
+                echo '<td>' . $formation->nombre_module . '</td>';
+                echo '</tr>';
+            }
+            ?>
         </tbody>
     </table>
 </body>
